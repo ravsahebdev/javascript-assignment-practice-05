@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript-assignment-practice-05</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 25px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .count {
+            text-align: center;
+            color: #facc15;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: #0f172a;
+            padding: 25px;
+            border-left: 5px solid #38bdf8;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .info-box h2 {
+            margin-bottom: 15px;
+        }
+
+        .info-box ul {
+            list-style: none;
+        }
+
+        .info-box li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .note {
+            background: #334155;
+            padding: 20px;
+            border-left: 5px solid #22c55e;
+            border-radius: 12px;
+            line-height: 1.8;
+        }
+
+        @media(max-width:768px) {
+
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .description,
+            .note,
+            .info-box li {
+                font-size: .95rem;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>⚡ JavaScript Array Methods</h1>
+
+        <p class="count">📄 16 Assignment Questions</p>
+
+        <p class="description">
+            This page contains JavaScript assignment questions based on commonly used
+            array methods. These exercises are designed to improve logical thinking,
+            data transformation, filtering, searching, and real-world problem-solving
+            using modern JavaScript.
+        </p>
+
+        <div class="info-box">
+
+            <h2>📚 What's Included?</h2>
+
+            <ul>
+                <li>✅ forEach()</li>
+                <li>✅ map()</li>
+                <li>✅ filter()</li>
+                <li>✅ reduce()</li>
+                <li>✅ find()</li>
+                <li>✅ findIndex()</li>
+                <li>✅ some()</li>
+                <li>✅ every()</li>
+                <li>✅ Intermediate & Hard Questions</li>
+                <li>✅ JavaScript Assignment Questions</li>
+            </ul>
+
+        </div>
+
+        <div class="note">
+
+            💡 <strong>How to Use</strong><br><br>
+
+            Open your browser's <strong>Developer Console (F12 → Console)</strong>
+            to view the output of all JavaScript assignment questions.
+
+            <br><br>
+
+            🚀 Read every question, understand the logic, and solve it before checking the implementation.
+
+        </div>
+
+    </div>
+    <script>
+        // JavaScript Beginner Practice Questions (Phase -2 ) Sheet - 3
+        // 1. forEach()
+        // Intermediate Question
+        // You are given an array of prices.
+        // Print each price with "₹" before it.
+        let prices = [100, 250, 399, 499];
+
+        // forEach() runs once for every element.
+        // You don't return anything here.
+        // Use console.log() inside it.
+        prices.forEach(value => console.log(`₹${value}`));
+
+        // Hard Question
+        // You are given an array of students.
+        let students = [
+            { name: "Anubhav", marks: 85 },
+            { name: "Rahul", marks: 90 },
+            { name: "Aman", marks: 42 },
+        ];
+        // Print:
+        // "Pass" if marks are greater than 50
+        // "Fail" otherwise
+        // Output format:
+        // Anubhav - Pass
+        // Rahul - Pass
+        // Loop through objects using forEach()
+        // Use condition checking inside loop.
+        students.forEach(value => {
+            if (value.marks >= 50) {
+                console.log(`${value.name} - Pass`)
+            } else {
+                console.log(`${value.name} - Fail`);
+            }
+        });
+
+        // 2. map()
+        // Intermediate Question
+        // Convert all names into uppercase.
+        let names = ["anubhav", "rahul", "aman"];
+        //// Expected Output:
+        // ["ANUBHAV", "RAHUL", "AMAN"]
+        // map() creates a new array.
+        // Use .toUpperCase().
+        let upperCaseName = names.map(value => value.toUpperCase());
+        console.log(upperCaseName);
+
+        // Hard Question
+        // You are given products.
+        let products = [
+            { name: "Laptop", price: 50000 },
+            { name: "Phone", price: 20000 },
+        ];
+        // Create a new array where:
+        // Every product has a new property discountPrice
+        // Discount is 10%
+        // Expected:
+        // [
+        //   { name: "Laptop", price: 50000, discountPrice: 45000 }
+        // ]
+        // Return a new object from map()
+        // Formula: price - (price * 10 / 100)
+        let discounted = products.map(value => {
+            value.discountPrice = value.price - (value.price * 10 / 100);
+            return value;
+        });
+        console.log(discounted);
+
+        // 3. filter()
+        // Filter all even numbers.
+        let nums = [1, 2, 3, 4, 5, 6, 7, 8];
+        // Expected Output: [2,4,6,8]
+        // filter() keeps elements when condition is true.
+        let even = nums.filter(even => even % 2 == 0);
+        console.log(even);
+
+        // Hard Question
+        // You are given users.
+        let users = [
+            { name: "Anubhav", active: true },
+            { name: "Rahul", active: true },
+            { name: "Aman", active: false },
+        ];
+        // Return only active users.
+        // Check active === true
+        // Return condition directly.
+        let activeUsers = users.filter(user => user.active);
+        console.log(activeUsers);
+
+        // 4. reduce()
+        // Intermediate Question
+        // Find total sum of array.
+        let numArray = [10, 20, 30, 40];
+        // Expected Output:
+        // 100
+        // reduce() needs:
+        // accumulator
+        // current value
+        let total = numArray.reduce((acc, curr) => acc + curr, 0);
+        console.log(total);
+
+        // Hard Question
+        // Count frequency of elements.
+        let fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+        // Expected Output:
+        // {
+        //   apple: 3,
+        //   banana: 2,
+        //   orange: 1
+        // }
+        // Create an empty object {} as initial value.
+        // Increase count if already exists.
+        let frequency = fruits.reduce((acc, curr) => {
+            if (!acc[curr]) {
+                acc[curr] = 1;
+            } else {
+                acc[curr]++;
+            }
+            return acc;
+        }, {});
+        console.log(frequency);
+
+        // 5. find()
+        // Find first number greater than 50.
+        let numsfind = [20, 35, 60, 80];
+        // Expected Output: 60
+        // find() returns first matching element.
+        let fiftyPlus = numsfind.find(value => value > 50);
+        console.log(fiftyPlus);
+
+        // Hard Question
+        // Find a user with username "admin".
+        let usersAdmin = [
+            { username: "rahul" },
+            { username: "admin" },
+            { username: "aman" }
+        ];
+        // Compare inside callback: user.username === "admin"
+        let admin = usersAdmin.find(admin => admin.username === "admin");
+        console.log(admin);
+
+        // 6. findIndex()
+        // Find index of number 90.
+        let numIndex = [10, 40, 90, 50];
+        // findIndex() returns index number.
+        let index = numIndex.findIndex(value => value === 90);
+        console.log(index);
+
+        // Hard Question
+        // Find index of first failed student.
+        let studentsIndex = [
+            { name: "A", marks: 90 },
+            { name: "C", marks: 70 },
+            { name: "B", marks: 30 },
+        ];
+        // Condition: Failed if marks < 40
+        // Use condition directly inside callback.
+        let firstFiled = studentsIndex.findIndex(marks => marks.marks < 40);
+        console.log(firstFiled);
+
+        // 7. some()
+        // Check if any number is negative.
+        let numsSome = [10, 20, -5, 40];
+        // Expected Output: true
+        // some() returns true if at least one condition matches.
+        let isNeg = numsSome.some(value => value < 0);
+        console.log(isNeg);
+
+        // Hard Question
+        // Check if any product is out of stock.
+        let productsStock = [
+            { name: "Laptop", stock: 5 },
+            { name: "Phone", stock: 0 },
+        ];
+        // Hint = Check: stock === 0
+        let stock = productsStock.some(value => value.stock === 0);
+        console.log(stock);
+
+        // 8. every()
+        // Check if all numbers are positive.
+        let numsEvery = [10, 20, 30, 10];
+        // Expected Output: true
+        let positive = numsEvery.every(value => value >= 0);
+        console.log(positive);
+
+        // Hard Question
+        // Check if all students passed.
+        let studentsEvery = [
+            { name: "A", marks: 80 },
+            { name: "C", marks: 90 },
+            { name: "B", marks: 45 },
+        ];
+
+        // Passing marks: 40
+        let allPass = studentsEvery.every(marks => marks.marks >= 40)
+        console.log(allPass);
+
+    </script>
+</body>
+
+</html>
